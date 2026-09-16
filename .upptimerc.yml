@@ -1,31 +1,36 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
-
+# HIYO public availability checks. No application source, account usage or keys.
+owner: seodongkon84-oss
+repo: hiyo-mainnet-status
+user-agent: HIYO-Mainnet-Status
+secrets: []
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
-
+  - name: HIYO app
+    slug: hiyo-app
+    url: https://hiyo-mainnet.vercel.app/api/health-ready
+    expectedStatusCodes: [200]
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"ok":true'
+  - name: HIYO backend
+    slug: hiyo-backend
+    url: https://hiyo-mainnet.cpsua734353.chatgpt.site/api/health-ready
+    expectedStatusCodes: [200]
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"ok":true'
+  - name: HIYO chat service
+    slug: hiyo-chat
+    url: https://hiyo-mainnet-realtime.hiyo-studio-lets.workers.dev/health
+    expectedStatusCodes: [200]
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"ok":true'
+  - name: HIYO operations
+    slug: hiyo-operations
+    url: https://hiyo-mainnet-operations.hiyo-studio-lets.workers.dev/health
+    expectedStatusCodes: [200]
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"ok":true'
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  baseUrl: /hiyo-mainnet-status
+  name: HIYO Status
+commitMessages:
+  commitAuthorName: HIYO Status
+  commitAuthorEmail: 41898282+github-actions[bot]@users.noreply.github.com

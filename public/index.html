@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>HIYO · 운영 상태</title><meta name="description" content="HIYO 외부 상태 검사와 Cloudflare·Vercel 공식 사용량 화면"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"><script type="module" src="./dashboard.js"></script></head>
+<body><main>
+<header><a class="brand" href="./"><span>H</span> HIYO <small>STATUS</small></a><a class="quiet" href="https://hiyo-mainnet.vercel.app/" target="_blank" rel="noopener">앱 열기 ↗</a></header>
+<section class="heading"><div><p class="eyebrow">MAINNET OPERATIONS</p><h1>한눈에 보는 운영 상태</h1><p>공식 사용량과 외부 응답 검사를 확인하세요.</p></div><button id="refresh" type="button">새로고침 ↻</button></section>
+<section class="overview" aria-live="polite"><div><span class="badge" id="overall">확인 중</span><h2 id="headline">최근 검사 결과를 불러옵니다.</h2><p id="freshness">데이터를 확인하고 있습니다.</p></div><div class="interval"><strong>5<span>분</span></strong><small>예약 검사 간격 · 실행 지연 가능</small></div></section>
+<div class="section-title"><h2>사용량 · 한도</h2><span>공급자 계정 로그인 필요</span></div>
+<section class="providers">
+<article class="provider"><div class="provider-top"><span class="provider-icon orange">☁</span><span class="pill">공식 데이터</span></div><h3>Cloudflare</h3><p>Worker 요청·CPU, Durable Objects 등의 사용량과 계정 한도를 확인합니다.</p><div class="provider-actions"><a class="primary" href="https://dash.cloudflare.com/c808b7a2ed2c17a7d4a9f43433b62f5b/workers-and-pages" target="_blank" rel="noopener">사용량 확인 ↗</a><a href="https://dash.cloudflare.com/c808b7a2ed2c17a7d4a9f43433b62f5b/notifications" target="_blank" rel="noopener">한도 알림 설정 ↗</a></div><small>계정 합계에는 다른 프로젝트가 포함될 수 있습니다.</small></article>
+<article class="provider"><div class="provider-top"><span class="provider-icon">▲</span><span class="pill">Hobby</span></div><h3>Vercel</h3><p>전송량·요청·함수 실행 등 실제 사용량과 제공 한도를 확인합니다.</p><div class="provider-actions"><a class="primary" href="https://vercel.com/lets5/~/usage" target="_blank" rel="noopener">사용량 확인 ↗</a><a href="https://vercel.com/account/notifications" target="_blank" rel="noopener">알림 설정 ↗</a></div><small>무료 요금제의 사용량 수치를 이 화면에서 자동 집계하지 않습니다.</small></article>
+</section>
+<p class="scope-note">Sites가 관리하는 앱 DB·저장소의 사용량은 개인 Cloudflare 계정에서 보이지 않을 수 있습니다. 조회되지 않는 수치를 0으로 표시하지 않습니다.</p>
+<div class="section-title"><h2>서비스 응답</h2><a href="https://github.com/seodongkon84-oss/hiyo-mainnet-status/issues" target="_blank" rel="noopener">장애 기록 ↗</a></div>
+<section class="services" id="services" aria-label="서비스별 상태"><p>검사 결과 로딩 중…</p></section>
+<section class="mail"><div><h2>이메일 알림</h2><p id="email">연결 상태를 확인하고 있습니다.</p></div><span class="pill" id="email-state">확인 중</span></section>
+<details><summary>검사 범위와 데이터 갱신 안내</summary><p>Upptime이 공개 건강 확인 주소의 HTTP 상태와 응답 내용을 검사합니다. 장애·지연이 감지되면 재시도 후 기록하며, 상태가 바뀔 때 이메일을 준비합니다. 메일 서버가 수락한 결과와 실제 받은편지함 도착은 다릅니다.</p><p>채팅·운영 서버의 HTTP 응답은 실제 WebSocket 메시지 전달이나 정산 작업 완료를 증명하지 않습니다. Pi 로그인·송금·보이스챗 실제 사용도 별도 확인이 필요합니다.</p><p>공급자 사용량·한도 알림은 위 공식 설정에서 확인합니다. 외부 검사 결과가 20분 이상 갱신되지 않으면 ‘검사 지연’으로 표시합니다. GitHub 예약 실행과 원본 파일 캐시에 지연이 있을 수 있습니다.</p></details>
+<footer><span>HIYO Mainnet · Powered by <a href="https://github.com/upptime/upptime" target="_blank" rel="noopener">Upptime</a></span><a href="https://github.com/seodongkon84-oss/hiyo-mainnet-status/actions" target="_blank" rel="noopener">감시 실행 기록 ↗</a></footer>
+</main></body></html>
