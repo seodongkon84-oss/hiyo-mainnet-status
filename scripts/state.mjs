@@ -5,6 +5,11 @@ export const SERVICES = [
   {slug:'hiyo-chat',name:'HIYO chat',description:'Cloudflare · chat Worker HTTP health'},
   {slug:'hiyo-operations',name:'HIYO operations',description:'Cloudflare · operations Worker HTTP health'},
 ];
+export function mailFailure(error){
+ const code=['EAUTH','ECONNECTION','ETIMEDOUT','EDNS','ESOCKET','ETLS','ECONFIG','EENVELOPE','EMESSAGE','ESTREAM'].includes(error?.code)?error.code:'UNKNOWN';
+ const status=Number.isInteger(error?.responseCode)&&error.responseCode>=400&&error.responseCode<=599?':'+error.responseCode:'';
+ return 'SMTP_DELIVERY_FAILED:'+code+status;
+}
 export function parseHistory(text, now = Date.now()) {
   const read = key => text.match(new RegExp('^'+key+':\\s*(.+)$','m'))?.[1].trim().replace(/^['"]|['"]$/g,'');
   const time = Date.parse(read('lastUpdated'));

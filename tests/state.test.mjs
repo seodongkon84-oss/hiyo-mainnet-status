@@ -1,8 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {parseHistory,transition} from '../scripts/state.mjs';
+import {parseHistory,transition,mailFailure} from '../scripts/state.mjs';
 const now=Date.parse('2026-09-16T15:00:00Z');
 const result=status=>[{slug:'hiyo-app',name:'HIYO app',status}];
+test('SMTP diagnostics expose only an allowed code and status, never credentials or response text',()=>{
+ assert.equal(mailFailure({code:'EAUTH',responseCode:535,response:'private password',message:'private account'}),'SMTP_DELIVERY_FAILED:EAUTH:535');
+ assert.equal(mailFailure({code:'private password',responseCode:'private value'}),'SMTP_DELIVERY_FAILED:UNKNOWN');
+});
 test('no first-run healthy email; one incident and recovery, no duplicate while unchanged',()=>{
   let s=transition(null,result('up'),now);assert.equal(s.pending.length,0);
   s=transition(s,result('down'),now+1);assert.equal(s.pending.length,1);

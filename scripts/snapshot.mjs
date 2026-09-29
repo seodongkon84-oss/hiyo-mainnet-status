@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import nodemailer from 'nodemailer';
-import {SERVICES,parseHistory,transition} from './state.mjs';
+import {SERVICES,parseHistory,transition,mailFailure} from './state.mjs';
 const now=Date.now();
 const path='history/notification-state.json';
 const previous=await fs.readFile(path,'utf8').then(JSON.parse).catch(e=>{if(e.code==='ENOENT')return null;throw e;});
@@ -33,7 +33,7 @@ if(configured && state.pending.length && state.mailCount<20) {
         state.delivered=(state.delivered??0)+1;
         state.lastAcceptedAt=new Date().toISOString();
         if(item.kind==='test')state.testAcceptedAt=state.lastAcceptedAt;
-      } catch {mailError='SMTP_DELIVERY_FAILED';break;}
+      } catch(error) {mailError=mailFailure(error);break;}
     }
   }finally{transport.close();}
 }
