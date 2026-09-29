@@ -1,4 +1,5 @@
 export const SERVICES = [
+  {slug:'hiyo-backup',name:'HIYO verified backup',description:'Drive · verified backup freshness'},
   {slug:'hiyo-app',name:'HIYO app',description:'Vercel · app readiness'},
   {slug:'hiyo-backend',name:'HIYO backend',description:'Sites · app and database readiness'},
   {slug:'hiyo-chat',name:'HIYO chat',description:'Cloudflare · chat Worker HTTP health'},

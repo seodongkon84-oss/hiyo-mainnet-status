@@ -16,12 +16,12 @@ async function refresh(){
     const response=await fetch(source+'?v='+Math.floor(Date.now()/60000),{cache:'no-store',signal:AbortSignal.timeout(12000)});
     if(!response.ok)throw Error('unavailable');
     const data=await response.json();const age=Date.now()-Date.parse(data.checkedAt);
-    if(!Number.isFinite(age)||age < -60000||!Array.isArray(data.services)||data.services.length!==4)throw Error('invalid');
+    if(!Number.isFinite(age)||age < -60000||!Array.isArray(data.services)||data.services.length!==5)throw Error('invalid');
     const stale=age>20*60000;
     const valid=data.services.every(s=>['up','down','degraded'].includes(s.status));if(!valid)throw Error('invalid');
     const overall=stale?'stale':data.services.some(s=>s.status==='down')?'down':data.services.some(s=>s.status==='degraded')?'degraded':'up';
     $('overall').className='badge '+overall;$('overall').textContent=labels[overall];
-    $('headline').textContent=overall==='up'?'네 곳 모두 정상 응답 중입니다.':overall==='stale'?'검사 결과가 오래되었습니다.':'확인이 필요한 서비스가 있습니다.';
+    $('headline').textContent=overall==='up'?'서비스 응답과 백업 상태가 정상입니다.':overall==='stale'?'검사 결과가 오래되었습니다.':'확인이 필요한 서비스가 있습니다.';
     $('freshness').textContent='마지막 검사 '+local(data.checkedAt)+(stale?' · 20분 이상 갱신되지 않았습니다.':' · 공개 건강 확인 주소 기준');
     const cards=data.services.map(s=>{
       const row=node('article','', 'service');const info=node('div','');info.append(node('h3',s.name),node('p',s.description));

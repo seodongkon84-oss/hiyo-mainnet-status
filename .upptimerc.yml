@@ -4,6 +4,12 @@ repo: hiyo-mainnet-status
 user-agent: HIYO-Mainnet-Status
 secrets: []
 sites:
+  - name: HIYO verified backup
+    slug: hiyo-backup
+    url: https://hiyo-mainnet-operations.hiyo-studio-lets.workers.dev/backup-health
+    expectedStatusCodes: [200]
+    maxResponseTime: 15000
+    __dangerous__body_down_if_text_missing: '"ok":true'
   - name: HIYO app
     slug: hiyo-app
     url: https://hiyo-mainnet.vercel.app/api/health-ready
