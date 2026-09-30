@@ -8,6 +8,8 @@ HIYO Mainnet 공개 건강 확인 주소를 Upptime v1.44.0으로 약 5분마다
 
 ## 이메일 연결
 
+2026-09-30 사용자 요청으로 이메일 알림을 일시 중지했습니다. GitHub repository variable `HIYO_EMAIL_ENABLED=false`이며 변수가 없을 때도 발송하지 않습니다. 상태 검사·백업 감시·대시보드는 계속합니다. 중지 중에는 SMTP Secret을 실행 환경에 전달하지 않고 시험 메일도 보내지 않습니다. 수신/발신 주소와 인증 Secret은 보존합니다. 재개는 사용자가 요청한 뒤 인증을 정비하고 이 변수를 `true`로 설정할 때만 합니다.
+
 수신/발신 주소는 `HIYO_ALERT_EMAIL` 비밀 설정에 보관합니다. SMTP 서버: `smtp.naver.com:465`, 인증서 검증을 유지한 TLS.
 
 1. 네이버에서 SMTP 이용과 2단계 인증을 설정하고 앱 비밀번호를 발급합니다. [공식 안내](https://help.naver.com/service/30029/contents/21341?lang=ko&osType=PC).

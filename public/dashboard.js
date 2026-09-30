@@ -29,8 +29,8 @@ async function refresh(){
       row.append(info,result);return row;
     });$('services').replaceChildren(...cards);
     const mail=data.email??{};
-    $('email-state').textContent=stale?'검사 지연':mail.error?'발송 재시도 대기':mail.configured?mail.testAcceptedAt?'발송 시험 수락':'시험 필요':'연결 대기';
-    $('email').textContent=!mail.configured?'발송용 비밀 설정을 등록하면 장애·복구 이메일을 보낼 수 있습니다.':mail.error?'메일 발송에 실패했습니다. 다음 검사에서 재시도합니다.':mail.testAcceptedAt?'메일 서버가 연결 확인 메일을 수락했습니다. 받은편지함 확인이 필요합니다.':'발송 설정이 등록되었습니다. 연결 확인 메일을 시험해 주세요.';
+    $('email-state').textContent=mail.enabled===false?'알림 꺼짐':stale?'검사 지연':mail.error?'발송 재시도 대기':mail.configured?mail.testAcceptedAt?'발송 시험 수락':'시험 필요':'연결 대기';
+    $('email').textContent=mail.enabled===false?'이메일 알림을 일시 중지했습니다. 서비스와 백업 상태 검사는 계속합니다.':!mail.configured?'발송용 비밀 설정을 등록하면 장애·복구 이메일을 보낼 수 있습니다.':mail.error?'메일 발송에 실패했습니다. 다음 검사에서 재시도합니다.':mail.testAcceptedAt?'메일 서버가 연결 확인 메일을 수락했습니다. 받은편지함 확인이 필요합니다.':'발송 설정이 등록되었습니다. 연결 확인 메일을 시험해 주세요.';
     if(mail.pending)$('email').textContent+=' 대기 중 '+mail.pending+'건.';
     if(mail.dropped)$('email').textContent+=' 보관 한도·기간을 넘긴 미발송 '+mail.dropped+'건은 실행 기록을 확인하세요.';
   }catch{fail();}finally{$('refresh').disabled=false;}

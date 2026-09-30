@@ -36,11 +36,12 @@ jobs:
         env:
           GH_PAT: ${{ github.token }}
           SECRETS_CONTEXT: '{}'
-      - name: Record checks and deliver queued email
+      - name: Record checks and optionally deliver queued email
         env:
-          SMTP_PASSWORD: ${{ secrets.HIYO_SMTP_PASSWORD }}
-          SMTP_USER: ${{ secrets.HIYO_ALERT_EMAIL }}
-          ALERT_TO: ${{ secrets.HIYO_ALERT_EMAIL }}
+          EMAIL_ENABLED: ${{ vars.HIYO_EMAIL_ENABLED == 'true' && 'true' || 'false' }}
+          SMTP_PASSWORD: ${{ vars.HIYO_EMAIL_ENABLED == 'true' && secrets.HIYO_SMTP_PASSWORD || '' }}
+          SMTP_USER: ${{ vars.HIYO_EMAIL_ENABLED == 'true' && secrets.HIYO_ALERT_EMAIL || '' }}
+          ALERT_TO: ${{ vars.HIYO_EMAIL_ENABLED == 'true' && secrets.HIYO_ALERT_EMAIL || '' }}
           TEST_EMAIL: ${{ inputs.test_email == true && 'true' || 'false' }}
         run: node scripts/snapshot.mjs
       - name: Save monitoring record

@@ -6,15 +6,16 @@ const path='history/notification-state.json';
 const previous=await fs.readFile(path,'utf8').then(JSON.parse).catch(e=>{if(e.code==='ENOENT')return null;throw e;});
 const results=await Promise.all(SERVICES.map(async service=>({...service,...parseHistory(await fs.readFile(`history/${service.slug}.yml`,'utf8'),now)})));
 const state=transition(previous,results,now);
+const enabled=process.env.EMAIL_ENABLED==='true';
 const configured=!!(process.env.SMTP_PASSWORD && process.env.SMTP_USER && process.env.ALERT_TO);
-if(process.env.TEST_EMAIL==='true') {
+if(enabled && process.env.TEST_EMAIL==='true') {
   if(!configured)throw new Error('HIYO_SMTP_PASSWORD and HIYO_ALERT_EMAIL must be added in GitHub Actions secrets before the email test.');
   state.pending.push({id:'test:'+now,slug:'email',name:'HIYO Mainnet',kind:'test',at:now,attempts:0});
 }
 let mailError=null;
 const day=new Date(now).toISOString().slice(0,10);
 if(state.mailDay!==day){state.mailDay=day;state.mailCount=0;}
-if(configured && state.pending.length && state.mailCount<20) {
+if(enabled && configured && state.pending.length && state.mailCount<20) {
   const transport=nodemailer.createTransport({host:'smtp.naver.com',port:465,secure:true,
     auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASSWORD},
     connectionTimeout:15000,greetingTimeout:15000,socketTimeout:20000,
@@ -40,8 +41,9 @@ if(configured && state.pending.length && state.mailCount<20) {
 await fs.mkdir('history',{recursive:true});
 await fs.writeFile(path,JSON.stringify(state,null,2)+'\n');
 const snapshot={checkedAt:new Date(now).toISOString(),services:results,
-  email:{configured,serverAcceptedAt:state.lastAcceptedAt??null,testAcceptedAt:state.testAcceptedAt??null,pending:state.pending.length,dropped:state.dropped??0,error:mailError}};
+  email:{enabled,configured,serverAcceptedAt:state.lastAcceptedAt??null,testAcceptedAt:state.testAcceptedAt??null,pending:state.pending.length,dropped:state.dropped??0,error:mailError}};
 await fs.writeFile('public/status.json',JSON.stringify(snapshot,null,2)+'\n');
-if(!configured)console.log('::warning::Email is awaiting HIYO_SMTP_PASSWORD and HIYO_ALERT_EMAIL. Availability checks remain active.');
+if(!enabled)console.log('Email notifications are paused. Availability checks remain active.');
+else if(!configured)console.log('::warning::Email is awaiting HIYO_SMTP_PASSWORD and HIYO_ALERT_EMAIL. Availability checks remain active.');
 if(mailError)throw new Error(mailError);
 console.log(`Recorded ${results.length} public health checks; queued email: ${state.pending.length}.`);
