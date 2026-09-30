@@ -12,7 +12,7 @@ if(enabled && process.env.TEST_EMAIL==='true') {
   if(!configured)throw new Error('HIYO_SMTP_PASSWORD and HIYO_ALERT_EMAIL must be added in GitHub Actions secrets before the email test.');
   state.pending.push({id:'test:'+now,slug:'email',name:'HIYO Mainnet',kind:'test',at:now,attempts:0});
 }
-let mailError=null;
+let mailError=null,attempted=false;
 const day=new Date(now).toISOString().slice(0,10);
 if(state.mailDay!==day){state.mailDay=day;state.mailCount=0;}
 if(enabled && configured && state.pending.length && state.mailCount<20) {
@@ -22,7 +22,7 @@ if(enabled && configured && state.pending.length && state.mailCount<20) {
     tls:{minVersion:'TLSv1.2'},disableFileAccess:true,disableUrlAccess:true});
   try {
     for(const item of [...state.pending].slice(0,Math.min(3,20-state.mailCount))) {
-      item.attempts++; state.mailCount++;
+      item.attempts++; state.mailCount++;attempted=true;
       const labels={down:'응답 장애',degraded:'응답 지연',recovered:'정상 복구',test:'이메일 연결 확인'};
       try {
         const delivered=await transport.sendMail({from:process.env.SMTP_USER,to:process.env.ALERT_TO,
@@ -32,16 +32,19 @@ if(enabled && configured && state.pending.length && state.mailCount<20) {
         if(!delivered.accepted?.length)throw new Error('SMTP_RECIPIENT_NOT_ACCEPTED');
         state.pending=state.pending.filter(x=>x.id!==item.id);
         state.delivered=(state.delivered??0)+1;
-        state.lastAcceptedAt=new Date().toISOString();
+        state.lastAcceptedAt=new Date().toISOString();state.lastMailFailure=null;
         if(item.kind==='test')state.testAcceptedAt=state.lastAcceptedAt;
-      } catch(error) {mailError=mailFailure(error);break;}
+      } catch(error) {mailError=mailFailure(error);state.lastMailFailure={error:mailError,at:new Date(now).toISOString()};break;}
     }
   }finally{transport.close();}
 }
 await fs.mkdir('history',{recursive:true});
 await fs.writeFile(path,JSON.stringify(state,null,2)+'\n');
+const status=!enabled?'paused':!configured?'unconfigured':state.pending.length&&state.mailCount>=20?'rate_limited':mailError?'failed':attempted?'accepted':state.pending.length?'pending':'idle';
+const lastFailure=state.lastMailFailure??null;
+const nextAttemptAt=enabled&&configured&&state.pending.length?(state.mailCount>=20?new Date(Date.parse(day+'T00:00:00Z')+86400000).toISOString():new Date(now+300000).toISOString()):null;
 const snapshot={checkedAt:new Date(now).toISOString(),services:results,
-  email:{enabled,configured,serverAcceptedAt:state.lastAcceptedAt??null,testAcceptedAt:state.testAcceptedAt??null,pending:state.pending.length,dropped:state.dropped??0,error:mailError}};
+  email:{enabled,configured,status,lastFailure,nextAttemptAt,serverAcceptedAt:state.lastAcceptedAt??null,testAcceptedAt:state.testAcceptedAt??null,pending:state.pending.length,dropped:state.dropped??0,error:enabled?(lastFailure?.error??null):null}};
 await fs.writeFile('public/status.json',JSON.stringify(snapshot,null,2)+'\n');
 if(!enabled)console.log('Email notifications are paused. Availability checks remain active.');
 else if(!configured)console.log('::warning::Email is awaiting HIYO_SMTP_PASSWORD and HIYO_ALERT_EMAIL. Availability checks remain active.');
