@@ -13,7 +13,7 @@
       "name": "HIYO verified backup",
       "kind": "down",
       "at": 1790672854439,
-      "attempts": 21
+      "attempts": 22
     },
     {
       "id": "hiyo-backup:1790673766214:recovered",
@@ -27,5 +27,5 @@
   "delivered": 0,
   "dropped": 0,
   "mailDay": "2026-09-30",
-  "mailCount": 1
+  "mailCount": 2
 }
