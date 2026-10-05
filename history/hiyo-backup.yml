@@ -1,7 +1,7 @@
 url: https://hiyo-mainnet-operations.hiyo-studio-lets.workers.dev/backup-health
-status: down
-code: 503
-responseTime: 219
-lastUpdated: 2026-10-05T01:53:21.482Z
+status: up
+code: 200
+responseTime: 196
+lastUpdated: 2026-10-05T02:03:23.616Z
 startTime: 2026-09-29T09:06:46.949Z
 generator: Upptime <https://github.com/upptime/upptime>
