@@ -1,45 +1,45 @@
 {
-  "checkedAt": "2026-10-05T21:51:41.575Z",
+  "checkedAt": "2026-10-05T22:01:58.538Z",
   "services": [
     {
       "slug": "hiyo-backup",
       "name": "HIYO verified backup",
       "description": "Drive · verified backup freshness",
       "status": "up",
-      "checkedAt": "2026-10-05T21:51:37.753Z",
-      "responseTime": 230
+      "checkedAt": "2026-10-05T22:01:54.588Z",
+      "responseTime": 512
     },
     {
       "slug": "hiyo-app",
       "name": "HIYO app",
       "description": "Vercel · app readiness",
       "status": "up",
-      "checkedAt": "2026-10-05T21:51:39.231Z",
-      "responseTime": 1459
+      "checkedAt": "2026-10-05T22:01:56.131Z",
+      "responseTime": 1518
     },
     {
       "slug": "hiyo-backend",
       "name": "HIYO backend",
       "description": "Sites · app and database readiness",
       "status": "up",
-      "checkedAt": "2026-10-05T21:51:40.078Z",
-      "responseTime": 829
+      "checkedAt": "2026-10-05T22:01:56.974Z",
+      "responseTime": 825
     },
     {
       "slug": "hiyo-chat",
       "name": "HIYO chat",
       "description": "Cloudflare · chat Worker HTTP health",
       "status": "up",
-      "checkedAt": "2026-10-05T21:51:40.263Z",
-      "responseTime": 166
+      "checkedAt": "2026-10-05T22:01:57.157Z",
+      "responseTime": 165
     },
     {
       "slug": "hiyo-operations",
       "name": "HIYO operations",
       "description": "Cloudflare · operations Worker HTTP health",
       "status": "up",
-      "checkedAt": "2026-10-05T21:51:40.391Z",
-      "responseTime": 112
+      "checkedAt": "2026-10-05T22:01:57.316Z",
+      "responseTime": 141
     }
   ],
   "email": {
