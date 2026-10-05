@@ -4,24 +4,25 @@
     "url": "https://hiyo-mainnet-operations.hiyo-studio-lets.workers.dev/backup-health",
     "icon": "https://icons.duckduckgo.com/ip3/hiyo-mainnet-operations.hiyo-studio-lets.workers.dev.ico",
     "slug": "hiyo-backup",
-    "status": "down",
-    "uptime": "57.43%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "57.43%",
-    "uptimeMonth": "57.43%",
-    "uptimeYear": "57.43%",
-    "time": 242,
-    "timeDay": 287,
-    "timeWeek": 242,
-    "timeMonth": 242,
-    "timeYear": 242,
+    "status": "up",
+    "uptime": "55.55%",
+    "uptimeDay": "81.35%",
+    "uptimeWeek": "55.55%",
+    "uptimeMonth": "55.55%",
+    "uptimeYear": "55.55%",
+    "time": 240,
+    "timeDay": 215,
+    "timeWeek": 240,
+    "timeMonth": 240,
+    "timeYear": 240,
     "dailyMinutesDown": {
       "2026-09-29": 15,
       "2026-10-03": 201,
       "2026-10-02": 1440,
       "2026-10-01": 1440,
       "2026-09-30": 288,
-      "2026-10-04": 0
+      "2026-10-05": 123,
+      "2026-10-04": 145
     }
   },
   {
@@ -35,11 +36,11 @@
     "uptimeWeek": "99.53%",
     "uptimeMonth": "99.82%",
     "uptimeYear": "99.82%",
-    "time": 2452,
-    "timeDay": 2548,
-    "timeWeek": 2410,
-    "timeMonth": 2452,
-    "timeYear": 2452,
+    "time": 2450,
+    "timeDay": 2324,
+    "timeWeek": 2403,
+    "timeMonth": 2450,
+    "timeYear": 2450,
     "dailyMinutesDown": {
       "2026-10-03": 48
     }
@@ -55,11 +56,11 @@
     "uptimeWeek": "99.53%",
     "uptimeMonth": "99.82%",
     "uptimeYear": "99.82%",
-    "time": 941,
-    "timeDay": 831,
-    "timeWeek": 848,
-    "timeMonth": 941,
-    "timeYear": 941,
+    "time": 940,
+    "timeDay": 863,
+    "timeWeek": 846,
+    "timeMonth": 940,
+    "timeYear": 940,
     "dailyMinutesDown": {
       "2026-10-03": 48
     }
@@ -77,7 +78,7 @@
     "uptimeYear": "100.00%",
     "time": 116,
     "timeDay": 97,
-    "timeWeek": 127,
+    "timeWeek": 126,
     "timeMonth": 116,
     "timeYear": 116,
     "dailyMinutesDown": {}
@@ -93,11 +94,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 110,
-    "timeDay": 43,
-    "timeWeek": 97,
-    "timeMonth": 110,
-    "timeYear": 110,
+    "time": 109,
+    "timeDay": 60,
+    "timeWeek": 96,
+    "timeMonth": 109,
+    "timeYear": 109,
     "dailyMinutesDown": {}
   }
 ]
