@@ -8,22 +8,6 @@
   },
   "pending": [
     {
-      "id": "hiyo-backup:1790672854439:down",
-      "slug": "hiyo-backup",
-      "name": "HIYO verified backup",
-      "kind": "down",
-      "at": 1790672854439,
-      "attempts": 40
-    },
-    {
-      "id": "hiyo-backup:1790673766214:recovered",
-      "slug": "hiyo-backup",
-      "name": "HIYO verified backup",
-      "kind": "recovered",
-      "at": 1790673766214,
-      "attempts": 0
-    },
-    {
       "id": "hiyo-backup:1790795580411:down",
       "slug": "hiyo-backup",
       "name": "HIYO verified backup",
@@ -113,7 +97,7 @@
     }
   ],
   "delivered": 0,
-  "dropped": 0,
+  "dropped": 2,
   "mailDay": "2026-10-06",
   "mailCount": 0
 }
