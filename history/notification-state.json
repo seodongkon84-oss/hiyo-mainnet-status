@@ -4,7 +4,7 @@
     "hiyo-backend": "up",
     "hiyo-chat": "up",
     "hiyo-operations": "up",
-    "hiyo-backup": "down"
+    "hiyo-backup": "up"
   },
   "pending": [
     {
@@ -109,6 +109,14 @@
       "name": "HIYO verified backup",
       "kind": "down",
       "at": 1791305955039,
+      "attempts": 0
+    },
+    {
+      "id": "hiyo-backup:1791307784550:recovered",
+      "slug": "hiyo-backup",
+      "name": "HIYO verified backup",
+      "kind": "recovered",
+      "at": 1791307784550,
       "attempts": 0
     }
   ],
