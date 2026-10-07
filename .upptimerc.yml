@@ -18,7 +18,7 @@ sites:
     __dangerous__body_down_if_text_missing: '"ok":true'
   - name: HIYO backend
     slug: hiyo-backend
-    url: https://hiyo-mainnet.cpsua734353.chatgpt.site/api/health-ready
+    url: https://hiyo-mainnet-app.hiyo-studio-lets.workers.dev/api/health-ready
     expectedStatusCodes: [200]
     maxResponseTime: 15000
     __dangerous__body_down_if_text_missing: '"ok":true'
