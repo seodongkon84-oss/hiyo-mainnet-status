@@ -5,13 +5,13 @@
     "icon": "https://icons.duckduckgo.com/ip3/hiyo-mainnet-operations.hiyo-studio-lets.workers.dev.ico",
     "slug": "hiyo-backup",
     "status": "down",
-    "uptime": "58.13%",
+    "uptime": "58.02%",
     "uptimeDay": "27.17%",
-    "uptimeWeek": "52.81%",
-    "uptimeMonth": "58.13%",
-    "uptimeYear": "58.13%",
+    "uptimeWeek": "52.61%",
+    "uptimeMonth": "58.02%",
+    "uptimeYear": "58.02%",
     "time": 247,
-    "timeDay": 255,
+    "timeDay": 257,
     "timeWeek": 236,
     "timeMonth": 247,
     "timeYear": 247,
@@ -24,7 +24,7 @@
       "2026-10-05": 141,
       "2026-10-04": 145,
       "2026-10-06": 679,
-      "2026-10-07": 423
+      "2026-10-07": 443
     }
   },
   {
@@ -32,20 +32,20 @@
     "url": "https://hiyo-mainnet.vercel.app/api/health-ready",
     "icon": "https://icons.duckduckgo.com/ip3/hiyo-mainnet.vercel.app.ico",
     "slug": "hiyo-app",
-    "status": "down",
-    "uptime": "99.84%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "99.52%",
-    "uptimeMonth": "99.84%",
-    "uptimeYear": "99.84%",
+    "status": "up",
+    "uptime": "99.77%",
+    "uptimeDay": "98.58%",
+    "uptimeWeek": "99.32%",
+    "uptimeMonth": "99.77%",
+    "uptimeYear": "99.77%",
     "time": 2389,
-    "timeDay": 1724,
-    "timeWeek": 2141,
+    "timeDay": 1732,
+    "timeWeek": 2143,
     "timeMonth": 2389,
     "timeYear": 2389,
     "dailyMinutesDown": {
       "2026-10-03": 48,
-      "2026-10-07": 0
+      "2026-10-07": 20
     }
   },
   {
@@ -54,19 +54,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/hiyo-mainnet.cpsua734353.chatgpt.site.ico",
     "slug": "hiyo-backend",
     "status": "down",
-    "uptime": "99.84%",
-    "uptimeDay": "99.98%",
-    "uptimeWeek": "99.53%",
-    "uptimeMonth": "99.84%",
-    "uptimeYear": "99.84%",
-    "time": 934,
-    "timeDay": 860,
+    "uptime": "99.77%",
+    "uptimeDay": "98.57%",
+    "uptimeWeek": "99.32%",
+    "uptimeMonth": "99.77%",
+    "uptimeYear": "99.77%",
+    "time": 933,
+    "timeDay": 855,
     "timeWeek": 822,
-    "timeMonth": 934,
-    "timeYear": 934,
+    "timeMonth": 933,
+    "timeYear": 933,
     "dailyMinutesDown": {
       "2026-10-03": 48,
-      "2026-10-07": 0
+      "2026-10-07": 21
     }
   },
   {
@@ -81,8 +81,8 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 117,
-    "timeDay": 139,
-    "timeWeek": 117,
+    "timeDay": 142,
+    "timeWeek": 118,
     "timeMonth": 117,
     "timeYear": 117,
     "dailyMinutesDown": {}
@@ -99,7 +99,7 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 108,
-    "timeDay": 113,
+    "timeDay": 116,
     "timeWeek": 81,
     "timeMonth": 108,
     "timeYear": 108,
