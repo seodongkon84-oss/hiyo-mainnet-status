@@ -8,22 +8,6 @@
   },
   "pending": [
     {
-      "id": "hiyo-app:1790993498331:down",
-      "slug": "hiyo-app",
-      "name": "HIYO app",
-      "kind": "down",
-      "at": 1790993498331,
-      "attempts": 0
-    },
-    {
-      "id": "hiyo-backend:1790993498331:down",
-      "slug": "hiyo-backend",
-      "name": "HIYO backend",
-      "kind": "down",
-      "at": 1790993498331,
-      "attempts": 0
-    },
-    {
       "id": "hiyo-app:1790996342083:recovered",
       "slug": "hiyo-app",
       "name": "HIYO app",
@@ -169,7 +153,7 @@
     }
   ],
   "delivered": 0,
-  "dropped": 3,
-  "mailDay": "2026-10-09",
+  "dropped": 5,
+  "mailDay": "2026-10-10",
   "mailCount": 0
 }
