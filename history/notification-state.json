@@ -8,14 +8,6 @@
   },
   "pending": [
     {
-      "id": "hiyo-backup:1791314600420:down",
-      "slug": "hiyo-backup",
-      "name": "HIYO verified backup",
-      "kind": "down",
-      "at": 1791314600420,
-      "attempts": 0
-    },
-    {
       "id": "hiyo-app:1791356621500:down",
       "slug": "hiyo-app",
       "name": "HIYO app",
@@ -65,7 +57,7 @@
     }
   ],
   "delivered": 0,
-  "dropped": 16,
+  "dropped": 17,
   "mailDay": "2026-10-13",
   "mailCount": 0
 }
