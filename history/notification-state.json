@@ -6,18 +6,9 @@
     "hiyo-operations": "up",
     "hiyo-backup": "down"
   },
-  "pending": [
-    {
-      "id": "hiyo-backup:1791400878878:down",
-      "slug": "hiyo-backup",
-      "name": "HIYO verified backup",
-      "kind": "down",
-      "at": 1791400878878,
-      "attempts": 0
-    }
-  ],
+  "pending": [],
   "delivered": 0,
-  "dropped": 22,
+  "dropped": 23,
   "mailDay": "2026-10-14",
   "mailCount": 0
 }
